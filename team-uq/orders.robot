@@ -1,6 +1,13 @@
 *** Settings ***
 Library    SeleniumLibrary
 
+
+*** Variables ***
+${url}    https://www.ubereats.com/
+&{username_teststore}    test4=uber+test+store6@factsandit.com    test3=uber+test+store6@factsandit.com     
+&{password_teststore}    pwtest4=tCF42g?8
+
+
 *** Keywords ***
 LoginTestStore
    Click Element    //*[@id="wrapper"]/header/div/div/div/div/a[2]
@@ -41,7 +48,6 @@ SelectOrder
     Click Element    //*[@id="wrapper"]/div[4]/div/div/div[2]/div[4]/div/div/div[1]/ul/li[6]/div/div[2]/label[2]/div[2]/div/div/div[1]
     #Click Element    //*[@id="wrapper"]/div[4]/div/div/div[2]/div[4]/div/div/div[2]/div/button/div[2]
     
-
 Payment
     #cesto de checkout
     Click Element    //*[@id="main-content"]/div[4]/div[2]/div/div/div/div/div/div/div/button   
@@ -50,10 +56,6 @@ Payment
     Set Browser Implicit Wait    5
     Click Element    //*[@id="main-content"]/div/div[2]/div[2]/div[2]/div[5]/div/div[1]/button
 
-*** Variables ***
-${url}    https://www.ubereats.com/
-&{username_teststore}    test4=uber+test+store6@factsandit.com    test3=uber+test+store6@factsandit.com     
-&{password_teststore}    pwtest4=tCF42g?8
 
 *** Test Cases ***
 CheckoutOrdersTest4
@@ -72,3 +74,4 @@ CheckoutOrdersTest4
     SelectOrder
     Set Browser Implicit Wait    5
     Payment
+    Close Browser
